@@ -14,13 +14,13 @@ function setQuery(evt) {
 
 function getResults (query) {
     fetch(`${api.base}weather?q=${query}&units=matric&APPID=${api.key}`)
-     .then(response => {
-         return response.json();
+     .then(weather => {
+         return weather.json();
      }).then(displayResults);
 } 
 
-function displayResults (response) {
-    console.log(response);
+function displayResults (weather) {
+    console.log(weather);
     let city = document.querySelector('.location .city');
     city.innerText = `${weather.name}, ${weather.sys.country}`;
 
